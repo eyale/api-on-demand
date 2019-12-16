@@ -1,0 +1,23 @@
+@import '../../../styles/colors.scss';
+
+.login{
+  &-form {
+    padding: 50px;
+    background-color: $WHITE;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.03);
+    &-link {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+    &-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      > img {
+        width: 200px;
+      }
+    }
+  }
+}
