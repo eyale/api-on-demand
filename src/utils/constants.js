@@ -18,11 +18,22 @@ export const tokenParams = {
   client_secret: 'api-on-demand-secret',
 };
 
+export const signUpPlaceholders = {
+  username: 'email@mail.com',
+  password: '***********',
+  repeatPassword: '***********',
+};
+
+export const signUpFields = {
+  username: '',
+  password: '',
+  repeatPassword: '',
+};
+
 export const loginPlaceholders = {
   username: 'email@mail.com',
   password: '***********',
 };
-
 export const loginFields = {
   username: '',
   password: '',

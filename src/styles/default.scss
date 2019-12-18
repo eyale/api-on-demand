@@ -78,9 +78,15 @@ a {
       font-size: 20px;
       line-height: 20px;
       letter-spacing: 0.2px;
-      color: getColor(base);
-      display: flex;
-      align-items: center;
+      
+      > a {
+        color: getColor(base);
+        display: flex;
+        align-items: center;
+        &:hover {
+          text-decoration: none;
+        }
+      }
       
     }
     &__account {
@@ -99,7 +105,7 @@ a {
   &.grid {
     margin: 0;
   }
-  &.button {
+  &.button:not(.icon) {
     height: 32px;
     background-color: getColor(primary);
     color: getColor(base);

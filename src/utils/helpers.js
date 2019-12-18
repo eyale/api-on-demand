@@ -15,6 +15,22 @@ export const loginValidationSchema = yup.object().shape({
     .required('Please Enter your password'),
 });
 
+export const signUpValidationSchema = yup.object().shape({
+  username: yup
+    .string()
+    .label('Username')
+    .email('Incorrect Username')
+    .required(),
+  password: yup
+    .string()
+    .label('Password')
+    .required('Please Enter your password'),
+  repeatPassword: yup
+    .string()
+    .label('Repeat Password')
+    .required('Please Repeat your password'),
+});
+
 // eslint-disable-next-line func-names
 export const paramsSerializer = params => {
   if (typeof params === 'object') {
@@ -29,10 +45,22 @@ export const paramsSerializer = params => {
 
 export const getLoginDisabledStatus = ({ values }) => {
   const isValidUsername = values.username.length === 0;
-
   const isValidPassword = values.password.length < 1;
 
   const validationArr = [isValidUsername, isValidPassword];
+
+  return !validationArr.every(field => !field);
+};
+
+export const getSignUpDisabledStatus = ({ values }) => {
+  const isValidUsername = values.username.length === 0;
+  const isValidPassword = values.password.length < 1;
+  const isValidRepeatPassword = values.repeatPassword.length < 1;
+  const validationArr = [
+    isValidUsername,
+    isValidPassword,
+    isValidRepeatPassword,
+  ];
 
   return !validationArr.every(field => !field);
 };

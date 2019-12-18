@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Message } from 'semantic-ui-react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
@@ -6,17 +6,27 @@ import PropTypes from 'prop-types';
 import DimmerLoader from '../../DimmerLoader';
 
 import {
-  loginValidationSchema as validationSchema,
-  getLoginDisabledStatus,
+  signUpValidationSchema as validationSchema,
+  getSignUpDisabledStatus,
 } from '../../../utils/helpers';
 import {
-  loginPlaceholders as placeholders,
-  loginFields as fields,
+  signUpPlaceholders as placeholders,
+  signUpFields as fields,
 } from '../../../utils/constants';
 
 import '../Form.scss';
 
 const SignUp = ({ onSubmit, loading, serverErrors }) => {
+  const [isPassHidden, handleIsPassHidden] = useState(true);
+  const [isRepeatPassHidden, handleIsRepeatPassHidden] = useState(true);
+  const togglePassEye = () => handleIsPassHidden(!isPassHidden);
+  const toggleRepeatPassEye = () =>
+    handleIsRepeatPassHidden(!isRepeatPassHidden);
+  const iconName = isPassHidden ? 'eye' : 'eye slash';
+  const repeatIconName = isRepeatPassHidden ? 'eye' : 'eye slash';
+  const type = isPassHidden ? 'password' : 'input';
+  const typeRepeat = isRepeatPassHidden ? 'password' : 'input';
+
   const handleSubmit = values => {
     return onSubmit && onSubmit(values);
   };
@@ -25,13 +35,13 @@ const SignUp = ({ onSubmit, loading, serverErrors }) => {
   return (
     <Formik initialValues={fields} validationSchema={validationSchema}>
       {props => {
-        const isDisabled = getLoginDisabledStatus(props);
+        const isDisabled = getSignUpDisabledStatus(props);
         const { values, handleChange, handleBlur, errors, touched } = props;
         const onSubmit = () => handleSubmit(values);
 
         return (
           <div className="login-form">
-            <Form onSubmit={onSubmit} error={!!errors}>
+            <Form error={!!errors}>
               <DimmerLoader active={loading} />
               <Form.Input
                 fluid
@@ -52,8 +62,21 @@ const SignUp = ({ onSubmit, loading, serverErrors }) => {
                 onBlur={handleBlur}
                 value={values.name}
                 name="password"
-                type="password"
+                type={type}
                 error={touched.password && errors.password}
+                action={{ icon: iconName, onClick: togglePassEye }}
+              />
+              <Form.Input
+                fluid
+                label="Repeat password"
+                placeholder={placeholders.repeatPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                value={values.name}
+                name="repeatPassword"
+                type={typeRepeat}
+                error={touched.password && errors.password}
+                action={{ icon: repeatIconName, onClick: toggleRepeatPassEye }}
               />
 
               <Message error content={errorMessage} />
@@ -63,7 +86,8 @@ const SignUp = ({ onSubmit, loading, serverErrors }) => {
                   type="submit"
                   loading={loading}
                   disabled={isDisabled}
-                  content="Login"
+                  content="Sign up"
+                  onClick={onSubmit}
                 />
               </div>
             </Form>

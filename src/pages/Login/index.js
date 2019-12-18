@@ -10,7 +10,7 @@ import { getToken } from '../../store/reducers/signUp/actions';
 
 const Login = ({ signUp, getToken, history }) => {
   const redirectToUsers = () => {
-    history.push('/users');
+    history.push('/');
   };
 
   const handleSubmit = async values => {

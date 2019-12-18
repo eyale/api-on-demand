@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import Logo from '../assets/Logo.svg';
 import AccountInformation from './AccountInformation';
@@ -8,10 +9,12 @@ const Header = () => (
   <header className="header">
     <div className="header-info">
       <div className="header-info__name">
-        <div className="logo">
-          <img src={Logo} alt="logo" />
-        </div>
-        <span>on demand</span>
+        <Link to="/">
+          <div className="logo">
+            <img src={Logo} alt="logo" />
+          </div>
+          <span>on demand</span>
+        </Link>
       </div>
       <div className="header-info__account">
         <ThemeSwitcher />

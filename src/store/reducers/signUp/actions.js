@@ -49,7 +49,8 @@ export const getToken = params => {
         payload: res,
       });
     } catch (err) {
-      if (err.response.status === 500) {
+      console.info('err: ', err);
+      if (err.response && err.response.status === 500) {
         serverError(err.response);
       } else {
         dispatch({
