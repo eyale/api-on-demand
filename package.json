@@ -66,6 +66,35 @@
     "yup": "0.27.0",
     "webpack": "4.41.0"
   },
+  "devDependencies": {
+    "@babel/core": "7.6.0",
+    "@svgr/webpack": "4.3.2",
+    "@typescript-eslint/eslint-plugin": "2.2.0",
+    "@typescript-eslint/parser": "2.2.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "babel-loader": "8.0.6",
+    "eslint": "6.1.0",
+    "eslint-config-airbnb": "18.0.1",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-config-react-app": "5.0.2",
+    "eslint-loader": "3.0.2",
+    "eslint-plugin-flowtype": "3.13.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "3.1.1",
+    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react-hooks": "1.6.1",
+    "eslint-plugin-standard": "4.0.1",
+    "gh-pages": "2.1.1",
+    "jest": "24.9.0",
+    "jest-environment-jsdom-fourteen": "0.1.0",
+    "jest-resolve": "24.9.0",
+    "jest-watch-typeahead": "0.4.0",
+    "node-sass": "4.13.0",
+    "prettier": "1.19.1",
+    "sass-loader": "7.2.0"
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -133,33 +162,5 @@
     "presets": [
       "react-app"
     ]
-  },
-  "devDependencies": {
-    "@babel/core": "7.6.0",
-    "@svgr/webpack": "4.3.2",
-    "@typescript-eslint/eslint-plugin": "2.2.0",
-    "@typescript-eslint/parser": "2.2.0",
-    "babel-eslint": "10.0.3",
-    "babel-jest": "24.9.0",
-    "babel-loader": "8.0.6",
-    "eslint": "6.1.0",
-    "eslint-config-airbnb": "18.0.1",
-    "eslint-config-prettier": "6.7.0",
-    "eslint-config-react-app": "5.0.2",
-    "eslint-loader": "3.0.2",
-    "eslint-plugin-flowtype": "3.13.0",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsx-a11y": "6.2.3",
-    "eslint-plugin-prettier": "3.1.1",
-    "eslint-plugin-react": "7.14.3",
-    "eslint-plugin-react-hooks": "1.6.1",
-    "eslint-plugin-standard": "4.0.1",
-    "jest": "24.9.0",
-    "jest-environment-jsdom-fourteen": "0.1.0",
-    "jest-resolve": "24.9.0",
-    "jest-watch-typeahead": "0.4.0",
-    "node-sass": "4.13.0",
-    "prettier": "1.19.1",
-    "sass-loader": "7.2.0"
   }
 }
