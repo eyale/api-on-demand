@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/api-on-demand/static/css/main.531fb1a6.chunk.css",
+    "main.js": "/api-on-demand/static/js/main.bfe37d7f.chunk.js",
+    "main.js.map": "/api-on-demand/static/js/main.bfe37d7f.chunk.js.map",
+    "runtime-main.js": "/api-on-demand/static/js/runtime-main.e15cc0e7.js",
+    "runtime-main.js.map": "/api-on-demand/static/js/runtime-main.e15cc0e7.js.map",
+    "static/css/2.f6b02619.chunk.css": "/api-on-demand/static/css/2.f6b02619.chunk.css",
+    "static/js/2.6cbcf3b7.chunk.js": "/api-on-demand/static/js/2.6cbcf3b7.chunk.js",
+    "static/js/2.6cbcf3b7.chunk.js.map": "/api-on-demand/static/js/2.6cbcf3b7.chunk.js.map",
+    "index.html": "/api-on-demand/index.html",
+    "precache-manifest.45a4d4668e9817862672a4ecb7fe795a.js": "/api-on-demand/precache-manifest.45a4d4668e9817862672a4ecb7fe795a.js",
+    "service-worker.js": "/api-on-demand/service-worker.js",
+    "static/css/2.f6b02619.chunk.css.map": "/api-on-demand/static/css/2.f6b02619.chunk.css.map",
+    "static/css/main.531fb1a6.chunk.css.map": "/api-on-demand/static/css/main.531fb1a6.chunk.css.map",
+    "static/media/Logo.svg": "/api-on-demand/static/media/Logo.e0fef14e.svg",
+    "static/media/default.scss": "/api-on-demand/static/media/OpenSans-SemiBold.dbee1c42.woff2",
+    "static/media/semantic.min.css": "/api-on-demand/static/media/outline-icons.ef60a4f6.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e15cc0e7.js",
+    "static/css/2.f6b02619.chunk.css",
+    "static/js/2.6cbcf3b7.chunk.js",
+    "static/css/main.531fb1a6.chunk.css",
+    "static/js/main.bfe37d7f.chunk.js"
+  ]
+}
