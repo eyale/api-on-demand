@@ -2,7 +2,7 @@
   "name": "api-on-demand",
   "homepage": "https://eyale.github.io/api-on-demand/",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "scripts": {
     "after:clone": "rm package-lock.json || true && npm i",
     "start": "node scripts/start.js",
