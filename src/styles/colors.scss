@@ -1,8 +1,24 @@
-$MAIN: #01804F;
-$MAIN_HOVER: rgb(4, 180, 113);
-$GREY: #333;
-$ALFA_RED: #C22636;
-$OXFORD_BLUE: #263238;
-$DISABLE: #cbe0e0;
-$DISABLE_50: rgba(196, 201, 198, 0.5);
-$WHITE: #fff;
+$colors: (
+  base: #242b30,
+  primary: rgb(206, 21, 144),
+  primary-hover: rgb(204, 85, 178),
+  bg: rgb(250, 250, 250),
+  white: #ffffff,
+  grey: #c5cdd4,
+  grey-dark: #666b70,
+  alfa-red: #C22636,
+);
+
+$colors-dark: (
+  base: map-get($colors, white),
+  primary: map-get($colors, primary),
+  primary-hover: map-get($colors, primary-hover),
+  bg: map-get($colors, base),
+  white: map-get($colors, base),
+  grey: map-get($colors, grey-dark),
+);
+
+
+@function getColor($color-name) {
+  @return var(--color-#{$color-name});
+}

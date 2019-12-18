@@ -3,7 +3,6 @@ import { Button, Form, Message } from 'semantic-ui-react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
 
-import Logo from '../../../assets/Logo.svg';
 import DimmerLoader from '../../DimmerLoader';
 
 import {
@@ -34,9 +33,6 @@ const LoginForm = ({ onSubmit, loading, serverErrors }) => {
           <div className="login-form">
             <Form onSubmit={onSubmit} error={!!errors}>
               <DimmerLoader active={loading} />
-              <div className="login-form-logo">
-                <img src={Logo} alt="logo" />
-              </div>
               <Form.Input
                 fluid
                 label="Username"

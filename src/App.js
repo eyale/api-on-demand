@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import 'semantic-ui-css/semantic.min.css';
 
+import { ThemeProvider } from './components/Theme/ThemeProvider';
 import './styles/default.scss';
 
 import configureStore from './store';
@@ -13,9 +14,11 @@ import DimmerLoader from './components/DimmerLoader';
 const { store, persistor } = configureStore();
 
 const Application = () => (
-  <div className="wrapper">
-    <Routes />
-  </div>
+  <ThemeProvider>
+    <div className="wrapper">
+      <Routes />
+    </div>
+  </ThemeProvider>
 );
 
 const App = () => (

@@ -2,14 +2,25 @@
 @import './fonts.scss';
 
 
+:root {
+  @each $name, $color in $colors {
+    --color-#{$name}: #{$color};
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, "Open Sans", BlinkMacSystemFont,  sans-serif;
-  background: $DISABLE_50;
-  color: #000;
+  background-color: getColor(white);
+  color: getColor(white);
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  &.dark {
+    @each $name, $color in $colors-dark {
+      --color-#{$name}: #{$color};
+    }
+  }
 }
 
 code {
@@ -27,13 +38,21 @@ code {
 
 .header {
   position: absolute;
-  background: $MAIN;
+  background: getColor(primary);
   top: 0;
   left: 0;
   right: 0;
   height: 70px;
   z-index: 1;
-  box-shadow: 0px 2px 10px $MAIN;
+  box-shadow: 0px 2px 10px getColor(primary);
+
+  .logo {
+    padding-right: 10px;
+    > img {
+      border-radius: 50%;
+      width: 40px;
+    }
+  }
 
   &-info {
     display: flex;
@@ -48,7 +67,9 @@ code {
       font-size: 20px;
       line-height: 20px;
       letter-spacing: 0.2px;
-      color: $WHITE;
+      color: getColor(white);
+      display: flex;
+      align-items: center;
       
     }
     &__account {
@@ -69,8 +90,8 @@ code {
   }
   &.button {
     height: 32px;
-    background: $MAIN;
-    color: $WHITE;
+    background-color: getColor(primary);
+    color: getColor(white);
     line-height: 32px;
     text-align: center;
     text-decoration: none;
@@ -80,11 +101,11 @@ code {
     transition: none;
     text-transform: uppercase;
     font-size: 15px;
-    box-shadow: 0px 2px 4px $MAIN;
+    box-shadow: 0px 2px 4px getColor(primary);
     &:hover {
-      background: $MAIN_HOVER;
-      box-shadow: 0px 2px 4px $MAIN;
-      color: $WHITE;
+      background-color: getColor(primary-hover);
+      box-shadow: 0px 2px 4px getColor(primary-hover);
+      color: getColor(white);
     }
   }
 }
@@ -98,8 +119,9 @@ code {
   }
 }
 .container {
-  padding: 0 40px;
+  padding: 0 20px;
 }
+
 .item {
   &-wrapper{
     align-items: center;

@@ -5,17 +5,17 @@
     .table {
       &-header{
         &__item{
-          border-bottom: 3px solid $MAIN;
+          border-bottom: 3px solid getColor(primary);
           font-weight: 400;
           font-size: 12px;
           line-height: 17px;
           letter-spacing: 0.12px;
-          color: #263238;
+          color: getColor(base);
         }
       }
     }
   }
 }
 .ui.sortable.table thead th.sorted:after{
-  color: $MAIN!important;
+  color: getColor(primary)!important;
 }

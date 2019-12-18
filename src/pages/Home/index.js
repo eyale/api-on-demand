@@ -8,7 +8,7 @@ import GridWrapper from '../../components/GridWrapper';
 
 import { getToken } from '../../store/reducers/signUp/actions';
 
-const Login = ({ signUp, getToken, history }) => {
+const Home = ({ signUp, getToken, history }) => {
   const redirectToUsers = () => {
     history.push('/users');
   };
@@ -36,10 +36,10 @@ const mapDispatchToProps = {
   getToken,
 };
 
-Login.propTypes = {
+Home.propTypes = {
   getToken: PropTypes.func.isRequired,
   signUp: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
