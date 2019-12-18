@@ -1,12 +1,14 @@
 $colors: (
   base: #242b30,
-  primary: rgb(206, 21, 144),
+  primary: rgb(231, 76, 179),
   primary-hover: rgb(204, 85, 178),
   bg: rgb(250, 250, 250),
   white: #ffffff,
   grey: #c5cdd4,
   grey-dark: #666b70,
   alfa-red: #C22636,
+  link: rgb(2, 94, 170),
+  link-dark: rgb(105, 182, 245),
 );
 
 $colors-dark: (
@@ -16,6 +18,7 @@ $colors-dark: (
   bg: map-get($colors, base),
   white: map-get($colors, base),
   grey: map-get($colors, grey-dark),
+  link: map-get($colors, link-dark),
 );
 
 

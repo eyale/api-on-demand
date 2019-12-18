@@ -3,12 +3,12 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import LoginForm from '../../components/Forms/Login';
+import SignUpForm from '../../components/Forms/SignUp';
 import GridWrapper from '../../components/GridWrapper';
 
 import { getToken } from '../../store/reducers/signUp/actions';
 
-const Login = ({ signUp, getToken, history }) => {
+const SignUp = ({ signUp, getToken, history }) => {
   const redirectToUsers = () => {
     history.push('/users');
   };
@@ -21,7 +21,7 @@ const Login = ({ signUp, getToken, history }) => {
 
   return (
     <GridWrapper>
-      <LoginForm
+      <SignUpForm
         onSubmit={handleSubmit}
         loading={loading}
         serverErrors={error}
@@ -36,10 +36,10 @@ const mapDispatchToProps = {
   getToken,
 };
 
-Login.propTypes = {
+SignUp.propTypes = {
   getToken: PropTypes.func.isRequired,
   signUp: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
 };
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));

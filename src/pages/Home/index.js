@@ -1,31 +1,32 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { Message } from 'semantic-ui-react';
 
-import LoginForm from '../../components/Forms/LoginForm';
 import GridWrapper from '../../components/GridWrapper';
 
 import { getToken } from '../../store/reducers/signUp/actions';
 
-const Home = ({ signUp, getToken, history }) => {
-  const redirectToUsers = () => {
-    history.push('/users');
-  };
-
-  const handleSubmit = async values => {
-    await getToken(values);
-    redirectToUsers();
-  };
-  const { error, loading } = signUp;
-
+const Home = () => {
   return (
     <GridWrapper>
-      <LoginForm
-        onSubmit={handleSubmit}
-        loading={loading}
-        serverErrors={error}
-      />
+      <Message>
+        <p>
+          <Link
+            to={{
+              pathname: '/login',
+            }}>
+            Login
+          </Link>{' '}
+          or{' '}
+          <Link
+            to={{
+              pathname: '/signup',
+            }}>
+            Sign up
+          </Link>
+        </p>
+      </Message>
     </GridWrapper>
   );
 };
@@ -36,10 +37,6 @@ const mapDispatchToProps = {
   getToken,
 };
 
-Home.propTypes = {
-  getToken: PropTypes.func.isRequired,
-  signUp: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-};
+Home.propTypes = {};
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Home));
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

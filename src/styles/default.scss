@@ -28,6 +28,17 @@ code {
     monospace;
 }
 
+p {
+  color: getColor(base);
+}
+a {
+  color: getColor(link);
+  &:hover {
+    color: getColor(link);
+    text-decoration: underline;
+  }
+}
+
 .wrapper {
   position: relative;
   min-height: 100%;
@@ -67,7 +78,7 @@ code {
       font-size: 20px;
       line-height: 20px;
       letter-spacing: 0.2px;
-      color: getColor(white);
+      color: getColor(base);
       display: flex;
       align-items: center;
       
@@ -91,7 +102,7 @@ code {
   &.button {
     height: 32px;
     background-color: getColor(primary);
-    color: getColor(white);
+    color: getColor(base);
     line-height: 32px;
     text-align: center;
     text-decoration: none;
@@ -105,8 +116,11 @@ code {
     &:hover {
       background-color: getColor(primary-hover);
       box-shadow: 0px 2px 4px getColor(primary-hover);
-      color: getColor(white);
+      color: getColor(base);
     }
+  }
+  .message {
+    background-color: getColor(grey);
   }
 }
 

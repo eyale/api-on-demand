@@ -14,9 +14,9 @@ import {
   loginFields as fields,
 } from '../../../utils/constants';
 
-import './LoginForm.scss';
+import '../Form.scss';
 
-const LoginForm = ({ onSubmit, loading, serverErrors }) => {
+const Login = ({ onSubmit, loading, serverErrors }) => {
   const handleSubmit = values => {
     return onSubmit && onSubmit(values);
   };
@@ -74,7 +74,7 @@ const LoginForm = ({ onSubmit, loading, serverErrors }) => {
   );
 };
 
-LoginForm.defaultProps = {
+Login.defaultProps = {
   handleChange: () => null,
   handleBlur: () => null,
   values: {
@@ -90,7 +90,7 @@ LoginForm.defaultProps = {
   serverErrors: null,
 };
 
-LoginForm.propTypes = {
+Login.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
   handleChange: PropTypes.func,
@@ -107,4 +107,4 @@ LoginForm.propTypes = {
   }),
   serverErrors: PropTypes.oneOfType([() => null, PropTypes.object]),
 };
-export default LoginForm;
+export default Login;
