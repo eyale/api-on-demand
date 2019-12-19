@@ -10,7 +10,7 @@ import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 
 const Routes = () => (
-  <Router>
+  <Router basename="/">
     <Header />
     <main className="main">
       <Switch>
