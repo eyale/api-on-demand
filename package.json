@@ -7,12 +7,11 @@
     "after:clone": "rm package-lock.json || true && npm i",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "clean": "rimraf .cache public",
     "lint": "eslint ./src/*.js ./src/**/*.js",
     "lint:fix": "eslint -f table --ext .js --ext .jsx ./ --fix",
     "test": "node scripts/test.js",
     "predeploy": "npm run build",
-    "deploy": "yarn run clean && gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "axios": "0.19.0",
