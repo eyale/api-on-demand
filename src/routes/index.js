@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import Header from '../components/Header';
 // import PrivateRoute from './PrivateRoute';
@@ -10,7 +10,7 @@ import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 
 const Routes = () => (
-  <Router basename="/">
+  <Router basename={process.env.PUBLIC_URL}>
     <Header />
     <main className="main">
       <Switch>
