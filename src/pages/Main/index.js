@@ -1,12 +1,12 @@
 import React from 'react';
 
-import LoginForm from '../../components/Forms/Login';
+import MainView from '../../components/MainView';
 import GridWrapper from '../../components/GridWrapper';
 
-const Login = () => (
+const Main = () => (
   <GridWrapper>
-    <LoginForm />
+    <MainView />
   </GridWrapper>
 );
 
-export default Login;
+export default Main;

@@ -5,13 +5,14 @@ import { connect } from 'react-redux';
 import * as R from 'ramda';
 
 const PrivateRoute = ({ component: Component, signUp, ...rest }) => {
-  const isNotAuthenticated = R.isNil(signUp.token);
+  const isAuthenticated = R.isNil(signUp.token);
+  // const isAuthenticated = true;
 
   return (
     <Route
       {...rest}
       render={props =>
-        isNotAuthenticated ? <Redirect to="/" /> : <Component {...props} />
+        isAuthenticated ? <Component {...props} /> : <Redirect to="/" />
       }
     />
   );
@@ -21,7 +22,7 @@ const mapStateToProps = ({ signUp }) => ({
 });
 
 PrivateRoute.propTypes = {
-  component: PropTypes.object.isRequired,
+  component: PropTypes.elementType.isRequired,
   signUp: PropTypes.object.isRequired,
 };
 

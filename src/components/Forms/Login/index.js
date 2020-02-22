@@ -1,10 +1,17 @@
-import React from 'react';
-import { Button, Form, Message } from 'semantic-ui-react';
+import React, { useEffect } from 'react';
+import { Button, Form } from 'semantic-ui-react';
 import { Formik } from 'formik';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+// import { useToasts } from 'react-toast-notifications';
 
 import DimmerLoader from '../../DimmerLoader';
 
+import {
+  getToken,
+  clearUserInfo,
+} from '../../../store/reducers/signUp/actions';
 import {
   loginValidationSchema as validationSchema,
   getLoginDisabledStatus,
@@ -16,11 +23,22 @@ import {
 
 import '../Form.scss';
 
-const Login = ({ onSubmit, loading, serverErrors }) => {
+const Login = ({ signUp, getToken, history, clearUserInfo }) => {
+  // const { addToast } = useToasts();
+  const { error, loading } = signUp;
+  const onDismiss = () => clearUserInfo();
+
+  useEffect(() => {
+    if (error) {
+      console.info('onDismiss: ', onDismiss);
+      // addToast(signUp.error.message, { appearance: 'error', onDismiss });
+      history.push(`/${signUp.data.username}`);
+    }
+  }, [signUp]);
+
   const handleSubmit = values => {
-    return onSubmit && onSubmit(values);
+    return getToken(values);
   };
-  const errorMessage = serverErrors && serverErrors.data.error_description;
 
   return (
     <Formik initialValues={fields} validationSchema={validationSchema}>
@@ -56,7 +74,6 @@ const Login = ({ onSubmit, loading, serverErrors }) => {
                 error={touched.password && errors.password}
               />
 
-              <Message error content={errorMessage} />
               <div className="btn-container btn-container__center">
                 <Button
                   size="big"
@@ -74,6 +91,13 @@ const Login = ({ onSubmit, loading, serverErrors }) => {
   );
 };
 
+const mapStateToProps = ({ signUp }) => ({ signUp });
+
+const mapDispatchToProps = {
+  getToken,
+  clearUserInfo,
+};
+
 Login.defaultProps = {
   handleChange: () => null,
   handleBlur: () => null,
@@ -87,12 +111,13 @@ Login.defaultProps = {
   errors: {
     username: '',
   },
-  serverErrors: null,
 };
 
 Login.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  loading: PropTypes.bool.isRequired,
+  history: PropTypes.object.isRequired,
+  getToken: PropTypes.func.isRequired,
+  clearUserInfo: PropTypes.func.isRequired,
+  signUp: PropTypes.object.isRequired,
   handleChange: PropTypes.func,
   handleBlur: PropTypes.func,
   values: PropTypes.exact({
@@ -105,6 +130,6 @@ Login.propTypes = {
   errors: PropTypes.exact({
     username: PropTypes.string,
   }),
-  serverErrors: PropTypes.oneOfType([() => null, PropTypes.object]),
 };
-export default Login;
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

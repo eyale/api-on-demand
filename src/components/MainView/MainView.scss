@@ -1,0 +1,22 @@
+@import '../../styles/colors.scss';
+
+.ui{
+  .login{
+  &-form {
+    padding: 20px;
+    background-color: getColor(grey);
+    border-radius: 3px;
+    box-shadow: 0 5px 10px rgba(0,0,0,.03);
+    &-link {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 30px;
+    }
+
+    .field {
+      > label {
+        color: getColor(base);
+      }
+    }
+  }
+}}

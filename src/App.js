@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import 'semantic-ui-css/semantic.min.css';
+import { ToastProvider } from 'react-toast-notifications';
 
 import { ThemeProvider } from './components/Theme/ThemeProvider';
 import './styles/default.scss';
@@ -24,7 +25,9 @@ const Application = () => (
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={<DimmerLoader active />} persistor={persistor}>
-      <Application />
+      <ToastProvider>
+        <Application />
+      </ToastProvider>
     </PersistGate>
   </Provider>
 );

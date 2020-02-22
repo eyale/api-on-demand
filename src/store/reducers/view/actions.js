@@ -9,8 +9,8 @@ export const clearServerError = () => {
   };
 };
 
-export const serverError = params => dispatch =>
+export const serverError = payload => dispatch =>
   dispatch({
     type: CONSTANTS.VIEW_SERVER_ERROR,
-    payload: params,
+    payload,
   });

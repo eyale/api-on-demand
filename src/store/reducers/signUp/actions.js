@@ -3,7 +3,7 @@ import { post } from '../../../server';
 import { tokenHeaders as headers, tokenParams } from '../../../utils/constants';
 import CONSTANTS from './constants';
 
-import { serverError } from '../view/actions';
+// import { serverError } from '../view/actions';
 
 export const clearSignUpError = () => {
   return dispatch => {
@@ -23,8 +23,8 @@ export const clearUserInfo = () => {
 
 export const getToken = params => {
   const adjustedParams = {
-    ...params,
     ...tokenParams,
+    ...params,
   };
 
   return async dispatch => {
@@ -49,15 +49,15 @@ export const getToken = params => {
         payload: res,
       });
     } catch (err) {
-      console.info('err: ', err);
-      if (err.response && err.response.status === 500) {
-        serverError(err.response);
-      } else {
-        dispatch({
-          type: `${CONSTANTS.SIGNUP_GET_TOKEN}${COMMON.ERROR}`,
-          payload: err.response,
-        });
-      }
+      console.info('err: ', JSON.stringify(err));
+      // if (err.response && err.response.status === 500) {
+      //   serverError(err.response);
+      // } else {
+      dispatch({
+        type: `${CONSTANTS.SIGNUP_GET_TOKEN}${COMMON.ERROR}`,
+        payload: err,
+      });
+      // }
     }
   };
 };

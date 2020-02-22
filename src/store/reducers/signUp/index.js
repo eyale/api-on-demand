@@ -7,7 +7,7 @@ const defaultState = {
   loaded: false,
   error: null,
   token: null,
-  password: '',
+  data: null,
   decodedToken: {},
 };
 
@@ -25,16 +25,17 @@ export default function signUp(state = defaultState, action = {}) {
     case `${CONSTANTS.SIGNUP_GET_TOKEN}${COMMON.START}`:
       return {
         ...state,
-        password: action.payload.password,
+        data: action.payload,
         loading: true,
       };
 
     case `${CONSTANTS.SIGNUP_GET_TOKEN}${COMMON.SUCCESS}`:
+      localStorage.setItem('token', action.payload.access_token);
       return {
         ...state,
         loading: defaultState.loading,
-        token: action.payload,
         error: defaultState.error,
+        token: action.payload,
         loaded: true,
         decodedToken: jwt(action.payload.access_token),
       };
